@@ -1,0 +1,83 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<script type="text/javascript" src="jquery/jquery-3.0.0.min.js"></script>
+	<title>Intrpretator</title>
+</head>
+<body>
+    
+
+<table align=center>
+	<tr>
+            <td><section><input id="0" /></section></td>
+	</tr>
+</table>
+<script>
+    
+$('input:last').focus();
+var i=-1; 
+$('section').on('keyup', function(e) {
+  if (e.which == 13) {
+     
+     i=i+1;
+     e.preventDefault();
+          
+     $('input:last').attr('disabled','disabled');
+     
+     $('section').append('<div class="msg"></div>').append('<input id='+i+' />');
+     var s="";
+     switch(i){
+    case 0: s=$('#0').val();break;
+    case 1: s=$('#1').val();break; 
+    case 2: s=$('#2').val();break;
+    case 3: s=$('#3').val();break;
+}        
+     foo(s);
+     $('input:last').focus();
+  }
+});
+</script>
+<script>
+    
+function foo(s){
+   
+ 
+
+//switch(i){
+//    case 0: s=$('#0').val();break;
+//    case 1: s=$('#1').val();break; 
+//    case 2: s=$('#2').val();break;
+//    case 3: s=$('#3').val();break;
+//}        
+
+//alert(i);
+$.post("./about",{expr:s},
+function(data){ //veshaem svoi obrabotchik
+$('.msg').html(data);
+});
+}
+</script>
+<!--
+<script>
+    
+$('input:last').focus();
+
+$('section').on('keyup', function(e) {
+  if (e.which == 13) {
+      
+     e.preventDefault();
+     
+     $('input:last').attr('disabled','disabled');
+     foo();
+     $('section').append('<div class="msg"></div>').append('<input id=in />');
+     
+     $('input:last').focus();
+  }
+});
+</script>
+!-->
+
+	
+</body>
+</html>

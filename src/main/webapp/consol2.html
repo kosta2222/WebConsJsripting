@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<script type="text/javascript" src="jquery/jquery-3.0.0.min.js"></script>
+</head>
+
+<body>
+<input type="text"  style="width: 200px; height: 25px;"  name="" id="1"/><input type="button" onclick="fu(1);" value="Ok"/><br>
+<div id="my1"></div>
+<input type="text" style="width: 200px; height: 25px;"  name="" id="2"/><input type="submit" onclick=fu(2) value="Ok"/><br>
+<div id="my2"></div>
+<input type="text" style="width: 200px; height: 25px;"  name="" id="3"/><input type="submit" onclick=fu(3) value="Ok"/><br>
+<div id="my3"></div>
+<input type="text" style="width: 200px; height: 25px;"  name="" id="4"/><input type="submit" onclick=fu(4) value="Ok"/><br>
+<div id="my4"></div>
+<input type="text" style="width: 200px; height: 25px;"  name="" id="5"/><input type="submit" onclick=fu(5) value="Ok"/><br>
+<div id="my5"></div>
+<input type="text" style="width: 200px; height: 25px;"  name="" id="6"/><input type="submit" onclick=fu(6) value="Ok"/><br>
+<div id="my6"></div>
+<div class="msg"></div>
+</body>
+<script>
+function fu(i){
+    
+
+s=document.getElementById(i).value;
+
+$.post("./about",{expr:s},
+function(data){ //veshaem svoi obrabotchik
+$('.msg').html(data);
+});
+}
+</script>
+</html>
